@@ -1,0 +1,20 @@
+# =============================================================================
+# Credit Default Risk Scoring API
+# DDM501 - Lab 1: First ML Product
+# =============================================================================
+services:
+  api:
+    build: .
+    container_name: credit-risk-api
+    ports:
+      - "8000:8000"
+    volumes:
+      # The model is an artifact, not code: mounted read-only, so retraining
+      # does not require rebuilding the image.
+      - ./models:/app/models:ro
+    environment:
+      MODEL_PATH: /app/models/credit_model.joblib
+      MODEL_VERSION: "1.0.0"
+      REVIEW_THRESHOLD: "0.30"
+      DECLINE_THRESHOLD: "0.60"
+    restart: unless-stopped

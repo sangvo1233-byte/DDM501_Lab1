@@ -1,0 +1,9 @@
+$ docker inspect --format='{{.State.Health.Status}}'  -> healthy
+$ docker exec ... whoami -> appuser
+$ curl /health
+{"status":"healthy","model_loaded":true,"model_version":"1.0.0"}
+$ curl /model/info
+{"model_version":"1.0.0","model_type":"HistGradientBoostingClassifier","trained_at":"2026-09-29T05:42:59+00:00","metrics":{"roc_auc":0.7481,"pr_auc":0.5461,"true_positives":671,"false_positives":515,"false_negatives":726,"true_negatives":4088,"threshold":0.3},"review_threshold":0.3,"decline_threshold":0.6,"is_loaded":true}
+$ curl -X POST /predict/batch (good + risky)
+{"predictions":[{"default_probability":0.0637,"risk_band":"LOW","decision":"APPROVE","review_threshold":0.3,"decline_threshold":0.6,"model_version":"1.0.0"},{"default_probability":0.8995,"risk_band":"HIGH","decision":"DECLINE","review_threshold":0.3,"decline_threshold":0.6,"model_version":"1.0.0"}],"total_count":2}
+$ curl -X POST /predict with pay_status=[99,...] -> 422

@@ -1,0 +1,38 @@
+# Python
+__pycache__/
+*.py[cod]
+.Python
+venv/
+.venv/
+env/
+.env
+
+# Distribution
+dist/
+build/
+*.egg-info/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+
+# Testing
+.pytest_cache/
+.coverage
+coverage.xml
+htmlcov/
+
+# Model artifacts (regenerate with scripts/train_model.py)
+models/*.joblib
+!models/.gitkeep
+
+# NOTE: data/credit_default.csv IS committed on purpose.
+# The lab must run with no network access.
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db

@@ -1,0 +1,18 @@
+# API and server
+fastapi==0.115.6
+uvicorn[standard]==0.34.0
+pydantic==2.10.4
+
+# Data and ML
+pandas==2.2.3
+numpy==2.2.1
+scikit-learn==1.6.0
+joblib==1.4.2
+
+# Configuration
+python-dotenv==1.0.1
+
+# Testing
+pytest==8.3.4
+pytest-cov==6.0.0
+httpx==0.28.1
